@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(0deg, rgb(0, 249, 236), rgb(71, 150, 229));
+            animation: gradientChange 10s infinite alternate-reverse;
+        }
+
+        @keyframes gradientChange {
+            0% {
+                background-position: 0%;
+            }
+            100% {
+                background-position: 100%;
+            }
+        }
+
+        #noButton {
+            position: absolute;
+            margin-left: 150px;
+            transition: 0.5s;
+            margin-top: 30px;
+        }
+        
+        #yesButton {
+            position: absolute;
+            margin-right: 150px;
+            margin-top: 30px;
+        }
+
+        .header_text {
+            font-family: "Nunito";
+            font-size: 50px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .text {
+            font-family: "Nunito";
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 0px;
+        }
+          
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        
+        .btn {
+            background-color: #017cff;
+            color: white;
+            font-weight: 600;
+            padding: 15px 32px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border: none;
+            border-radius: 12px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 3px 3px black;
+        }
+        
+        .btn:hover {
+            background-color: #ffffff;
+            color: #017cff;
+        }
+
+        .talk{
+            margin-top: 70px;
+            display: none;
+            margin-bottom: 50px;
+        }
+
+        .talk1,.talk2,.talk3,.talk4,.talk5,.talk6,.talk7,.talk8 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        .btn {
+            position: relative;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1 class="header_text">Do you love me?</h1>
+        </div>
+
+        <div class="buttons">
+            <button class="btn" id="yesButton" onclick="next1()">Yes</button>
+            <button class="btn" id="noButton" onmouseover="moveButton()">No</button>
+        </div>
+    
+        <div class="talk">
+            <div class="talk1">
+                <h3>Write down the reasons of your Love</h3>
+                <textarea name="talk" id="love" cols="30" rows="10"></textarea><br>
+                <button class="btn next" onclick="next2()">Next</button>
+            </div>
+
+            <div class="talk2">
+                <h3>Write down My Nature</h3>
+                <textarea name="talk" id="nature" cols="30" rows="10"></textarea><br>
+                <button class="btn next" onclick="next3()">Next</button>
+            </div>
+
+            <div class="talk3">
+                <h3>Write down what I should Improve</h3>
+                <textarea name="talk" id="improve" cols="30" rows="10"></textarea><br>
+                <button class="btn next" onclick="next4()">Next</button>
+            </div>
+
+            <div class="talk4">
+                <h3>Write down your best memory with me</h3>
+                <textarea name="talk" id="memory" cols="30" rows="10"></textarea><br>
+                <button class="btn next" onclick="next5()">Next</button>
+            </div>
+
+            <div class="talk5">
+                <h3>Write down what attracts you to me</h3>
+                <textarea name="talk" id="attract" cols="30" rows="10"></textarea><br>
+                <button class="btn next" onclick="next6()">Next</button>
+            </div>
+
+            <div class="talk6">
+                <h3>Write down what positive change has came in you while being with me</h3>
+                <textarea name="talk" id="change" cols="30" rows="10"></textarea><br>
+                <button class="btn next" onclick="next7()">Next</button>
+            </div>
+
+            <div class="talk7">
+                <h3>Write down what make you feel loved or appreciated</h3>
+                <textarea name="talk" id="feel" cols="30" rows="10"></textarea><br>
+                <button class="btn next" onclick="next8()">Next</button>
+            </div>
+
+            <div class="talk8">
+                <h3>Write down all the persons name with I should not talk or talk less</h3>
+                <textarea name="talk" id="person" cols="30" rows="10"></textarea><br>
+                <button class="btn next" onclick="nextPage()">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function next1() {
+            document.querySelector(".talk").style.display = "block";
+            document.querySelector(".talk1").style.opacity = 1;
+        }
+        
+        function next2() {
+            document.querySelector(".talk2").style.opacity = 1;
+        }
+        function next3() {
+            document.querySelector(".talk3").style.opacity = 1;
+        }
+        function next4() {
+            document.querySelector(".talk4").style.opacity = 1;
+        }
+        function next5() {
+            document.querySelector(".talk5").style.opacity = 1;
+        }
+        function next6() {
+            document.querySelector(".talk6").style.opacity = 1;
+        }
+        function next7() {
+            document.querySelector(".talk7").style.opacity = 1;
+        }
+        function next8() {
+            document.querySelector(".talk8").style.opacity = 1;
+        }
+
+        function moveButton() {
+            var x =
+              Math.random() * (window.innerWidth - document.getElementById("noButton").offsetWidth);
+            var y =
+              Math.random() * (window.innerHeight - document.getElementById("noButton").offsetHeight);
+            
+            document.getElementById("noButton").style.left = `${x}px`;
+            document.getElementById("noButton").style.top = `${y}px`;
+          }
+        
+
+        function nextPage() {
+            var text1 = document.getElementById('love').value;
+            var text2 = document.getElementById('nature').value;
+            var text3 = document.getElementById('improve').value;
+            var text4 = document.getElementById('memory').value;
+            var text5 = document.getElementById('attract').value;
+            var text6 = document.getElementById('change').value;
+            var text7 = document.getElementById('feel').value;
+            var text8 = document.getElementById('person').value;
+            localStorage.setItem('sharedText1', text1);
+            localStorage.setItem('sharedText2', text2);
+            localStorage.setItem('sharedText3', text3);
+            localStorage.setItem('sharedText4', text4);
+            localStorage.setItem('sharedText5', text5);
+            localStorage.setItem('sharedText6', text6);
+            localStorage.setItem('sharedText7', text7);
+            localStorage.setItem('sharedText8', text8);
+            window.location.href = "last.html";
+        }
+    </script>
+</body>
+</html>

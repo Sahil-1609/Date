@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+</head>
+
+<style>
+    .container{
+        margin-top: 50px;
+    }
+
+    .card{
+        margin-top: 20px;
+    }
+
+    .counts{
+        margin-top: 70px;
+        text-align: center;
+    }
+
+    .count{
+        font-size: 25px;
+    }
+
+    .nexts{
+        margin-top: 70px;
+        text-align: center;
+        display: none;
+    }
+
+    .next{
+        font-size: 25px;
+    }
+</style>
+<body>
+    <div class="container">
+      <div class="row">
+
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Love Reason</h5>
+              <p class="card-text love">
+                <!-- Love reasons will be displayed here -->
+              </p>
+                  <button class="btn btn-primary" onclick="vote('good')" id="goodChange">Good</button>
+                    <button class="btn btn-primary" onclick="vote('bad')" id="badChange">Bad</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Nature</h5>
+              <p class="card-text nature">
+                <!-- Nature will be displayed here -->
+              </p>
+                  <button class="btn btn-primary" onclick="vote('good')" id="goodChange">Good</button>
+                    <button class="btn btn-primary" onclick="vote('bad')" id="badChange">Bad</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Improve</h5>
+                <p class="card-text improve">
+                  <!-- Improvements will be displayed here -->
+                </p>
+                  <button class="btn btn-primary" onclick="vote('good')" id="goodChange">Good</button>
+                  <button class="btn btn-primary" onclick="vote('bad')" id="badChange">Bad</button>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Memory</h5>
+                <p class="card-text memory">
+                  <!-- Memory will be displayed here -->
+                </p>
+                  <button class="btn btn-primary" onclick="vote('good')" id="goodChange">Good</button>
+                  <button class="btn btn-primary" onclick="vote('bad')" id="badChange">Bad</button>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Attract</h5>
+                <p class="card-text attract">
+                  <!-- Attractiveness will be displayed here -->
+                </p>
+                  <button class="btn btn-primary" onclick="vote('good')" id="goodChange">Good</button>
+                  <button class="btn btn-primary" onclick="vote('bad')" id="badChange">Bad</button>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Change</h5>
+                <p class="card-text change">
+                  <!-- Changes will be displayed here -->
+                </p>
+                  <button class="btn btn-primary" onclick="vote('good')" id="goodChange">Good</button>
+                  <button class="btn btn-primary" onclick="vote('bad')" id="badChange">Bad</button>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Feel Loved</h5>
+                <p class="card-text feel">
+                  <!-- Feeling will be displayed here -->
+                </p>
+                  <button class="btn btn-primary" onclick="vote('good')" id="goodChange">Good</button>
+                  <button class="btn btn-primary" onclick="vote('bad')" id="badChange">Bad</button>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Persons</h5>
+                <p class="card-text person">
+                  <!-- Persons will be displayed here -->
+                </p>
+                  <button class="btn btn-primary" onclick="vote('good')" id="goodChange">Good</button>
+                  <button class="btn btn-primary" onclick="vote('bad')" id="badChange">Bad</button>
+              </div>
+            </div>
+          </div>
+
+      </div>
+
+      <div class="counts">
+        <button class="btn btn-primary count" onclick="updateCounts()">Counts</button>
+      </div>
+
+      <div class="nexts">
+        <button class="btn btn-primary next" onclick="nextPage()">Next👉</button>
+      </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            var loveText = localStorage.getItem('sharedText1');
+            var natureText = localStorage.getItem('sharedText2');
+            var improveText = localStorage.getItem('sharedText3');
+            var memoryText = localStorage.getItem('sharedText4');
+            var attractText = localStorage.getItem('sharedText5');
+            var changeText = localStorage.getItem('sharedText6');
+            var feelText = localStorage.getItem('sharedText7');
+            var personText = localStorage.getItem('sharedText8');
+            
+            if (loveText) {
+                document.querySelector('.love').textContent = loveText;
+            }
+            if (natureText) {
+                document.querySelector('.nature').textContent = natureText;
+            }
+            if (natureText) {
+                document.querySelector('.improve').textContent = improveText;
+            }
+            if (natureText) {
+                document.querySelector('.memory').textContent = memoryText;
+            }
+            if (natureText) {
+                document.querySelector('.attract').textContent = attractText;
+            }
+            if (natureText) {
+                document.querySelector('.change').textContent = changeText;
+            }
+            if (natureText) {
+                document.querySelector('.feel').textContent = feelText;
+            }
+            if (natureText) {
+                document.querySelector('.person').textContent = personText;
+            }
+        });
+
+        var goodCount = 0;
+        var badCount = 0;
+
+        var goodCount = 0;
+        var badCount = 0;
+
+        function vote(type) {
+            if (type === 'good') {
+                goodCount++;
+            } else if (type === 'bad') {
+                badCount++;
+            }
+        }
+
+        function updateCounts() {
+            alert(`Good Votes: ${goodCount}, Bad Votes: ${badCount}`);
+            document.querySelector(".nexts").style.display = "block";
+        }
+
+        function nextPage() {
+            window.location.href = "yes.html";
+        }
+    </script>
+</body>
+</html>
